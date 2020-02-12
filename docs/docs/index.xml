@@ -11,41 +11,30 @@
     
     <item>
       <title></title>
-      <link>https://hello-world-example.github.io/Research/docs/hidden/</link>
+      <link>https://hello-world-example.github.io/Research/docs/Nacos/Deploy-Cluster/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://hello-world-example.github.io/Research/docs/hidden/</guid>
-      <description>This page is hidden in menu Quondam non pater est dignior ille Eurotas Latent te facies Lorem markdownum arma ignoscas vocavit quoque ille texit mandata mentis ultimus, frementes, qui in vel. Hippotades Peleus pennas conscia cuiquam Caeneus quas.
- Pater demittere evincitque reddunt Maxime adhuc pressit huc Danaas quid freta Soror ego Luctus linguam saxa ultroque prior Tatiumque inquit Saepe liquitur subita superata dederat Anius sudor  Cum honorum Latona O fallor in sustinui iussorum equidem.</description>
+      <guid>https://hello-world-example.github.io/Research/docs/Nacos/Deploy-Cluster/</guid>
+      <description> 集群部署   集群部署说明  Issues  nacos 集群采用nginx做负载，nginx监听80端口，client默认连接8848端口    </description>
     </item>
     
     <item>
       <title></title>
-      <link>https://hello-world-example.github.io/Research/docs/shortcodes/</link>
+      <link>https://hello-world-example.github.io/Research/docs/Nacos/Deploy-Standalone/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://hello-world-example.github.io/Research/docs/shortcodes/</guid>
-      <description>各种样式 折叠 Default {{&amp;lt; expand &amp;gt;}} ## Markdown content Lorem markdownum insigne... {{&amp;lt; /expand &amp;gt;}}  Expand ↕  Markdown content Lorem markdownum insigne&amp;hellip;    With Custom Label {{&amp;lt; expand &amp;#34;Custom Label&amp;#34; &amp;#34;...&amp;#34; &amp;gt;}} ## Markdown content Lorem markdownum insigne... {{&amp;lt; /expand &amp;gt;}}  Custom Label ...  Markdown content Lorem markdownum insigne. Olympo signis Delphis! Retexi Nereius nova develat stringit, frustra Saturnius uteroque inter! Oculis non ritibus Telethusa protulit, sed sed aere valvis inhaesuro Pallas animam: qui quid, ignes.</description>
+      <guid>https://hello-world-example.github.io/Research/docs/Nacos/Deploy-Standalone/</guid>
+      <description>Nacos 快速部署   访问 http://localhost:8848/nacos/ 默认账户 nacos / nacos   Docker 部署  https://nacos.io/zh-cn/docs/quick-start-docker.html
+ docker pull nacos/nacos-server docker run -d -p 8848:8848 \  -e &amp;#34;MODE=standalone&amp;#34; \  -e &amp;#34;SPRING_DATASOURCE_PLATFORM=mysql&amp;#34; \  -e &amp;#34;MYSQL_DATABASE_NUM=1&amp;#34; \  -e &amp;#34;MYSQL_MASTER_SERVICE_HOST=192.168.1.4&amp;#34; \  -e &amp;#34;MYSQL_MASTER_SERVICE_PORT=3307&amp;#34; \  -e &amp;#34;MYSQL_MASTER_SERVICE_DB_NAME=nacos&amp;#34; \  -e &amp;#34;MYSQL_MASTER_SERVICE_USER=root&amp;#34; \  -e &amp;#34;MYSQL_MASTER_SERVICE_PASSWORD=123456&amp;#34; \  --name nacos nacos/nacos-server docker logs nacos -f IDEA 运行 git clone https://github.</description>
     </item>
     
     <item>
       <title></title>
-      <link>https://hello-world-example.github.io/Research/docs/with-toc/</link>
+      <link>https://hello-world-example.github.io/Research/docs/Sentinel/Quick-Start/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://hello-world-example.github.io/Research/docs/with-toc/</guid>
-      <description>默认带导航 Cognita laeva illo fracta Lorem markdownum pavent auras, surgit nunc cingentibus libet Laomedonque que est. Pastor An arbor filia foedat, ne fugit aliter, per. Helicona illas et callida neptem est Oresitrophos caput, dentibus est venit. Tenet reddite famuli praesentem fortibus, quaeque vis foret si frondes gelidos gravidae circumtulit inpulit armenta nativum.
- Te at cruciabere vides rubentis manebo Maturuit in praetemptat ruborem ignara postquam habitasse Subitarum supplevit quoque fontesque venabula spretis modo Montis tot est mali quasque gravis Quinquennem domus arsit ipse Pellem turis pugnabant locavit  Natus quaerere Pectora et sine mulcere, coniuge dum tincta incurvae.</description>
-    </item>
-    
-    <item>
-      <title></title>
-      <link>https://hello-world-example.github.io/Research/docs/without-toc/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://hello-world-example.github.io/Research/docs/without-toc/</guid>
-      <description>不使用导航 Tanto oblite Lorem markdownum pectora novis patenti igne sua opus aurae feras materiaque illic demersit imago et aristas questaque posset. Vomit quoque suo inhaesuro clara. Esse cumque, per referri triste. Ut exponit solisque communis in tendens vincetis agisque iamque huic bene ante vetat omina Thebae rates. Aeacus servat admonitu concidit, ad resimas vultus et rugas vultu dignamque Siphnon.
-Quam iugulum regia simulacra, plus meruit humo pecorumque haesit, ab discedunt dixit: ritu pharetramque.</description>
+      <guid>https://hello-world-example.github.io/Research/docs/Sentinel/Quick-Start/</guid>
+      <description></description>
     </item>
     
   </channel>

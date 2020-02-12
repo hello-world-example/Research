@@ -8,28 +8,22 @@
   </url>
   
   <url>
-    <loc>https://hello-world-example.github.io/Research/docs/hidden/</loc>
-    <lastmod>2020-02-11T14:35:20+08:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://hello-world-example.github.io/Research/docs/shortcodes/</loc>
+    <loc>https://hello-world-example.github.io/Research/docs/Nacos/Deploy-Cluster/</loc>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>https://hello-world-example.github.io/Research/docs/with-toc/</loc>
+    <loc>https://hello-world-example.github.io/Research/docs/Nacos/Deploy-Standalone/</loc>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>https://hello-world-example.github.io/Research/docs/without-toc/</loc>
-    <lastmod>2020-02-11T14:35:20+08:00</lastmod>
+    <loc>https://hello-world-example.github.io/Research/docs/Sentinel/Quick-Start/</loc>
+    <priority>0</priority>
   </url>
   
   <url>
     <loc>https://hello-world-example.github.io/Research/docs/</loc>
-    <lastmod>2020-02-11T14:35:20+08:00</lastmod>
   </url>
   
   <url>

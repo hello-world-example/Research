@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Deploy Standalone | Research</title>
+
+
+<link rel="stylesheet" href="/Research/book.min.79de1f7861b0c98f453c0a93bebf3608a280809e417787746c373699639900d7.css">
+
+
+
+
+<link rel="icon" href="/Research/favicon.png" type="image/x-icon">
+
+
+<!--
+Made with Book Theme
+https://github.com/alex-shpak/hugo-book
+-->
+
+  
+</head>
+
+<body>
+  <input type="checkbox" style="display: none" id="menu-control" />
+  <main class="flex container">
+
+    <aside class="book-menu fixed">
+      <nav>
+<h2 class="book-brand">
+  <a href="https://hello-world-example.github.io/Research/">Research</a>
+</h2>
+
+
+
+
+
+
+    
+  
+  
+  
+
+  <style>
+  nav ul a[href$="\2fResearch\2f docs\2fNacos\2f Deploy-Standalone\2f "] {
+      color: #004ed0;
+  }
+  </style>
+
+<ul>
+<li><strong>Nacos</strong>
+
+<ul>
+<li><a href="/Research/docs/Nacos/Deploy-Standalone/">快速部署</a></li>
+<li><a href="/Research/docs/Nacos/Deploy-Cluster/">集群部署</a></li>
+</ul></li>
+<li><strong>Sentinel</strong>
+
+<ul>
+<li><a href="/Research/docs/Sentinel/Quick-Start/">快速开始</a></li>
+</ul></li>
+</ul>
+
+
+
+
+
+
+
+</nav>
+
+
+<script>
+(function() {
+  var menu = document.querySelector("aside.book-menu nav");
+  addEventListener("beforeunload", function(event) {
+    localStorage.setItem("menu.scrollTop", menu.scrollTop);
+  });
+  menu.scrollTop = localStorage.getItem("menu.scrollTop");
+})();
+</script>
+
+    </aside>
+
+    <div class="book-page">
+      <header class="flex align-center justify-between book-header">
+  <label for="menu-control">
+    <img src="/Research/svg/menu.svg" alt="Menu" />
+  </label>
+  <strong>Deploy Standalone</strong>
+</header>
+
+      
+<article class="markdown">
+
+<h1 id="nacos-快速部署">Nacos 快速部署</h1>
+
+<blockquote>
+<ul>
+<li>访问 <a href="http://localhost:8848/nacos/">http://localhost:8848/nacos/</a></li>
+<li>默认账户 nacos / nacos</li>
+</ul>
+</blockquote>
+
+<h2 id="docker-部署">Docker 部署</h2>
+
+<blockquote>
+<p><a href="https://nacos.io/zh-cn/docs/quick-start-docker.html">https://nacos.io/zh-cn/docs/quick-start-docker.html</a></p>
+</blockquote>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">docker pull nacos/nacos-server
+
+docker run -d -p <span style="color:#ae81ff">8848</span>:8848 <span style="color:#ae81ff">\
+</span><span style="color:#ae81ff"></span>  -e <span style="color:#e6db74">&#34;MODE=standalone&#34;</span> <span style="color:#ae81ff">\
+</span><span style="color:#ae81ff"></span>  -e <span style="color:#e6db74">&#34;SPRING_DATASOURCE_PLATFORM=mysql&#34;</span> <span style="color:#ae81ff">\
+</span><span style="color:#ae81ff"></span>  -e <span style="color:#e6db74">&#34;MYSQL_DATABASE_NUM=1&#34;</span> <span style="color:#ae81ff">\
+</span><span style="color:#ae81ff"></span>  -e <span style="color:#e6db74">&#34;MYSQL_MASTER_SERVICE_HOST=192.168.1.4&#34;</span> <span style="color:#ae81ff">\
+</span><span style="color:#ae81ff"></span>  -e <span style="color:#e6db74">&#34;MYSQL_MASTER_SERVICE_PORT=3307&#34;</span> <span style="color:#ae81ff">\
+</span><span style="color:#ae81ff"></span>  -e <span style="color:#e6db74">&#34;MYSQL_MASTER_SERVICE_DB_NAME=nacos&#34;</span> <span style="color:#ae81ff">\
+</span><span style="color:#ae81ff"></span>  -e <span style="color:#e6db74">&#34;MYSQL_MASTER_SERVICE_USER=root&#34;</span> <span style="color:#ae81ff">\
+</span><span style="color:#ae81ff"></span>  -e <span style="color:#e6db74">&#34;MYSQL_MASTER_SERVICE_PASSWORD=123456&#34;</span> <span style="color:#ae81ff">\
+</span><span style="color:#ae81ff"></span>  --name nacos nacos/nacos-server
+
+docker logs nacos -f</code></pre></div>
+<h2 id="idea-运行">IDEA 运行</h2>
+
+<p><code>git clone https://github.com/alibaba/nacos.git</code> 之后，选择最新的正式版。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#75715e"># 查看 tag， 这里选择 1.1.4</span>
+git tag --list
+
+
+<span style="color:#75715e"># 从 tag 创建分支</span>
+git branch dev_kail_1.1.4 <span style="color:#ae81ff">1</span>.1.4 
+git checkout dev_kail_1.1.4</code></pre></div>
+<h3 id="pom-xml-改为-aliyun-仓库">/pom.xml 改为 aliyun 仓库</h3>
+
+<p>加快编译速度</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#f92672">&lt;repositories&gt;</span>
+    <span style="color:#f92672">&lt;repository&gt;</span>
+        <span style="color:#f92672">&lt;id&gt;</span>ali<span style="color:#f92672">&lt;/id&gt;</span>
+        <span style="color:#f92672">&lt;url&gt;</span>https://maven.aliyun.com/repository/public<span style="color:#f92672">&lt;/url&gt;</span>
+    <span style="color:#f92672">&lt;/repository&gt;</span>
+<span style="color:#f92672">&lt;/repositories&gt;</span></code></pre></div>
+<h3 id="编译">编译</h3>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">mvn -Prelease-nacos -Dmaven.test.skip<span style="color:#f92672">=</span>true clean install -U  </code></pre></div>
+<h3 id="数据库配置">数据库配置</h3>
+
+<ul>
+<li>新建数据库 <code>nacos</code></li>
+<li>找到 <code>distribution\conf\nacos-mysql.sql</code> 执行，初始化表</li>
+
+<li><p>找到 <code>nacos/console/src/main/resources/application.properties</code>，新增以下配置</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-properties" data-lang="properties"># 新增
+spring.datasource.platform=mysql
+db.num=1
+db.url.0=jdbc:mysql://127.0.0.1:3307/nacos?characterEncoding=utf8&amp;autoReconnect=true
+db.user=root
+db.password=123456
+# 打开 Prometheus 监控端口，http://localhost:8848/nacos/actuator/prometheus
+management.endpoints.web.exposure.include=*</code></pre></div></li>
+</ul>
+
+<h3 id="运行">运行</h3>
+
+<ul>
+<li>找到 <code>nacos/console/src/main/java/com/alibaba/nacos/Nacos.java</code></li>
+<li><code>main</code> 方法新增 <code>System.setProperty(&quot;nacos.standalone&quot;, &quot;true&quot;);</code></li>
+<li>运行</li>
+</ul>
+
+<h2 id="本地部署">本地部署</h2>
+
+<p>mvn 编译之后，找到执行文件运行</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">ls -al distribution/target/
+
+cd distribution/target/nacos-server-1.1.4/nacos/bin
+
+<span style="color:#75715e"># 不加参数 默认是集群模式</span>
+<span style="color:#75715e"># standalone 默认使用嵌入式数据库</span>
+./startup.sh -m standalone
+
+<span style="color:#75715e"># 访问 http://localhost:8848/nacos/</span>
+<span style="color:#75715e"># 默认账户 nacos / nacos</span></code></pre></div>
+<h2 id="参考概念">参考概念</h2>
+
+<blockquote>
+<p><a href="https://nacos.io/zh-cn/docs/concepts.html">Nacos 概念</a></p>
+</blockquote>
+
+<ul>
+<li>命名空间 / 租户 (<code>tenant</code>)： 可以用来区分环境，如： dev、test、prod 等</li>
+<li><code>group</code> ：可以用来标示一个项目</li>
+<li><code>dataId</code> ：可以用来标示一类配置 或 配置文件（common.properties）
+
+<ul>
+<li>Spring Cloud 默认情况下，<code>dataId</code> 就是应用名，一个应用一个配置</li>
+</ul></li>
+<li><code>tenant</code> + <code>group</code> + <code>dataId</code>  唯一标示一个配置</li>
+<li>:8848/nacos/v1/cs/configs?<code>tenant</code>=NamespaceId&amp;<code>group</code>=GroupName&amp;<code>dataId</code>=ConfigFileName</li>
+</ul>
+
+<h2 id="read-more">Read More</h2>
+
+<ul>
+<li><a href="https://nacos.io/zh-cn/docs/console-guide.html">控制台手册</a></li>
+<li><a href="https://nacos.io/zh-cn/docs/open-api.html">Open API 指南</a></li>
+<li><a href="https://nacos.io/zh-cn/docs/monitor-guide.html">Nacos 监控手册</a></li>
+</ul>
+</article>
+
+      
+<div class="book-footer justify-end">
+  
+  
+  <div>
+    <a href="https://github.com/hello-world-example/Research/edit/master/HuGo/content/docs/Nacos/Deploy-Standalone.md" target="_blank" rel="noopener">
+      <img src="/Research/svg/edit.svg" alt="Edit" /> Edit this page
+    </a>
+  </div>
+  
+</div>
+
+
+      
+    </div>
+
+    
+  
+
+  <aside class="book-toc level-3 fixed">
+    <nav id="TableOfContents">
+<ul>
+<li><a href="#nacos-快速部署">Nacos 快速部署</a>
+<ul>
+<li><a href="#docker-部署">Docker 部署</a></li>
+<li><a href="#idea-运行">IDEA 运行</a>
+<ul>
+<li><a href="#pom-xml-改为-aliyun-仓库">/pom.xml 改为 aliyun 仓库</a></li>
+<li><a href="#编译">编译</a></li>
+<li><a href="#数据库配置">数据库配置</a></li>
+<li><a href="#运行">运行</a></li>
+</ul></li>
+<li><a href="#本地部署">本地部署</a></li>
+<li><a href="#参考概念">参考概念</a></li>
+<li><a href="#read-more">Read More</a></li>
+</ul></li>
+</ul>
+</nav>
+  </aside>
+
+
+
+  </main>
+  
+  
+  
+</body>
+
+</html>
