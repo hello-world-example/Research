@@ -24,7 +24,10 @@
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://hello-world-example.github.io/Research/docs/Nacos/Deploy-Cluster/</guid>
-      <description> 集群部署   集群部署说明  Issues  nacos 集群采用nginx做负载，nginx监听80端口，client默认连接8848端口    </description>
+      <description>集群部署 快速部署 单机 快速部署 的基础上，在 classpath 根目录新增 conf/cluster.conf 文件，内容如下：
+# ip:port（同一个机器上启动多台） 192.168.1.4:18848 192.168.1.4:28848 192.168.1.4:38848 启动命令去掉 -m standalone （ System.setProperty(&amp;quot;nacos.standalone&amp;quot;, &amp;quot;false&amp;quot;); ）即可：
+./startup.sh 自定义启动方式 pom 依赖 官方 nacos-console 没有发布到中央仓库，可以自行打包到私服 或 使用下面这个第三方的依赖
+&amp;lt;dependency&amp;gt; &amp;lt;groupId&amp;gt;com.xkcoding.nacos&amp;lt;/groupId&amp;gt; &amp;lt;artifactId&amp;gt;nacos-console&amp;lt;/artifactId&amp;gt; &amp;lt;version&amp;gt;1.1.4&amp;lt;/version&amp;gt; &amp;lt;/dependency&amp;gt; application.properties # 集群地址 nacos.cluster-addresses=192.168.1.4:18848,192.168.1.4:28848,192.168.1.4:38848 启动类 @Import(Nacos.class) @SpringBootApplication public class NacosConsoleApplication { /** * classpath 根目录 */ private static final String ROOT_PATH = NacosConsoleApplication.class.getResource(&amp;#34;/&amp;#34;).getPath(); /** * 集群列表 */ @Value(&amp;#34;${nacos.cluster-addresses}&amp;#34;) private List&amp;lt;String&amp;gt; nacosClusterAddresses; @PostConstruct public void init() throws IOException { Files.</description>
     </item>
     
     <item>

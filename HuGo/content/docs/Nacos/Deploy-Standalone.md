@@ -75,7 +75,7 @@ mvn -Prelease-nacos -Dmaven.test.skip=true clean install -U
 - 找到 `distribution\conf\nacos-mysql.sql` 执行，初始化表
 - 找到 `nacos/console/src/main/resources/application.properties`，新增以下配置
 
-```properties
+```bash
 # 新增
 spring.datasource.platform=mysql
 db.num=1
