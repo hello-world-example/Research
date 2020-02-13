@@ -1,5 +1,6 @@
 package xyz.kail.demo.research.nacos.cloud.controller;
 
+import com.alibaba.cloud.nacos.NacosConfigManager;
 import com.alibaba.nacos.api.annotation.NacosInjected;
 import com.alibaba.nacos.api.config.ConfigService;
 import com.alibaba.nacos.api.config.annotation.NacosConfigListener;
@@ -11,6 +12,7 @@ import org.springframework.cloud.context.config.annotation.RefreshScope;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import javax.annotation.Resource;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.concurrent.Executor;
@@ -26,9 +28,6 @@ import java.util.concurrent.Executor;
 @RestController
 @RequestMapping("/config")
 public class ConfigController {
-
-    @NacosInjected
-    private ConfigService configService;
 
     private String appInfo;
 
@@ -60,30 +59,4 @@ public class ConfigController {
         return configs;
     }
 
-    /**
-     * FIXME groupId 不支持 ${}
-     * FIXME 没有效果
-     */
-    @NacosConfigListener(dataId = "app")
-    public void onAppChange(String config) {
-        System.out.println("change: " + config);
-    }
-
-    /**
-     * FIXME configService 不在 容器中
-     */
-    // @PostConstruct
-    public void init() throws NacosException {
-        configService.addListener("app.properties", "research-nacos-cloud", new Listener() {
-            @Override
-            public Executor getExecutor() {
-                return null;
-            }
-
-            @Override
-            public void receiveConfigInfo(String configInfo) {
-                System.out.println("receiveConfigInfo: " + configInfo);
-            }
-        });
-    }
 }
